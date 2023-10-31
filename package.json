@@ -1,0 +1,73 @@
+{
+  "author": "Skull",
+  "bin": {
+    "scc": "./bin/run.js"
+  },
+  "dependencies": {
+    "@oclif/core": "^3",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^3.9.4",
+    "eslint-config-prettier": "^9.0.0",
+    "libsodium-wrappers": "^0.7.13",
+    "pusher-js": "^8.3.0"
+  },
+  "description": "Secure Command Line Chat using XChaCha20 Encryption",
+  "devDependencies": {
+    "@oclif/prettier-config": "^0.2.1",
+    "@oclif/test": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^18",
+    "chai": "^4",
+    "eslint": "^8.52.0",
+    "eslint-config-oclif": "^5",
+    "eslint-config-oclif-typescript": "^3",
+    "mocha": "^10",
+    "oclif": "^4.0.3",
+    "shx": "^0.3.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/mohitxskull/secure-cli-chat",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "secure-cli-chat",
+  "oclif": {
+    "bin": "scc",
+    "dirname": "scc",
+    "default": ".",
+    "commands": "./dist/main",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {}
+  },
+  "repository": "mohitxskull/secure-cli-chat",
+  "scripts": {
+    "dev": "node ./bin/dev.js",
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "version": "0.0.0",
+  "bugs": "https://github.com/mohitxskull/secure-cli-chat/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts"
+}
